@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		FAFB93F629AB7FE700B7BBC9 /* MemoGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFB93F429AB7FE700B7BBC9 /* MemoGame.xcdatamodeld */; };
 		FAFB93F829AB7FE700B7BBC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFB93F729AB7FE700B7BBC9 /* Assets.xcassets */; };
 		FAFB93FB29AB7FE700B7BBC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFB93F929AB7FE700B7BBC9 /* LaunchScreen.storyboard */; };
+		FAFB940929AB8EDD00B7BBC9 /* GameCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB940829AB8EDD00B7BBC9 /* GameCVC.swift */; };
+		FAFB940C29AB8F6100B7BBC9 /* GameCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB940B29AB8F6100B7BBC9 /* GameCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FAFB93F729AB7FE700B7BBC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFB93FA29AB7FE700B7BBC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAFB93FC29AB7FE700B7BBC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFB940829AB8EDD00B7BBC9 /* GameCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCVC.swift; sourceTree = "<group>"; };
+		FAFB940B29AB8F6100B7BBC9 /* GameCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +66,22 @@
 				FAFB93ED29AB7FE700B7BBC9 /* SceneDelegate.swift */,
 				FAFB93EF29AB7FE700B7BBC9 /* ViewController.swift */,
 				FAFB93F129AB7FE700B7BBC9 /* Main.storyboard */,
+				FAFB940B29AB8F6100B7BBC9 /* GameCVCell.swift */,
+				FAFB940829AB8EDD00B7BBC9 /* GameCVC.swift */,
+				FAFB940A29AB8EE700B7BBC9 /* CVC Game */,
 				FAFB93F729AB7FE700B7BBC9 /* Assets.xcassets */,
 				FAFB93F929AB7FE700B7BBC9 /* LaunchScreen.storyboard */,
 				FAFB93FC29AB7FE700B7BBC9 /* Info.plist */,
 				FAFB93F429AB7FE700B7BBC9 /* MemoGame.xcdatamodeld */,
 			);
 			path = MemoGame;
+			sourceTree = "<group>";
+		};
+		FAFB940A29AB8EE700B7BBC9 /* CVC Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "CVC Game";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,7 +120,7 @@
 				};
 			};
 			buildConfigurationList = FAFB93E329AB7FE700B7BBC9 /* Build configuration list for PBXProject "MemoGame" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -143,7 +157,9 @@
 			files = (
 				FAFB93F029AB7FE700B7BBC9 /* ViewController.swift in Sources */,
 				FAFB93F629AB7FE700B7BBC9 /* MemoGame.xcdatamodeld in Sources */,
+				FAFB940929AB8EDD00B7BBC9 /* GameCVC.swift in Sources */,
 				FAFB93EC29AB7FE700B7BBC9 /* AppDelegate.swift in Sources */,
+				FAFB940C29AB8F6100B7BBC9 /* GameCVCell.swift in Sources */,
 				FAFB93EE29AB7FE700B7BBC9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +315,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,6 +344,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
