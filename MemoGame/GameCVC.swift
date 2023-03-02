@@ -12,11 +12,11 @@ import UIKit
 class GameCVC: UICollectionViewController {
 
     var openCell: [Int] = []
-    let itemsPerRow: CGFloat = 2
+    let itemsPerRow: CGFloat = 3
     let sectionInserts = UIEdgeInsets(top: 150, left: 20, bottom: 20, right: 20)
-    let arrayOfItemImage = [1, 2, 3, 3, 2, 1]
-    
-    
+    var arrayOfItemImage: [Int] = []
+    var setOfRandomItem: Set<Int> = []
+    var arrayOfImage: [String] = []
     
     
     
@@ -26,10 +26,24 @@ class GameCVC: UICollectionViewController {
         
         
         
-        let dictOfImageAndIndex = ["dog1" : 1, "dog2" : 2 , "dog3" : 3]
+        while arrayOfItemImage.count < 12 {
+            let randomInt = Int.random(in: 1..<7)
+            print (randomInt)
+            if arrayOfItemImage.filter({ $0 == randomInt }).count < 2 {
+                arrayOfItemImage.append(randomInt)
+            }
+        }
+        
+        print (arrayOfItemImage)
+        print(arrayOfItemImage.filter { $0 == 2 }.count)
+        
+
+        for i in 0...arrayOfItemImage.count - 1 {
+            arrayOfImage.append("dog\(arrayOfItemImage[i])")
+            print (arrayOfImage)
+        }
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-       
         layout.estimatedItemSize = .zero
         
     }
@@ -54,7 +68,7 @@ class GameCVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 6
+        return 12
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,46 +77,54 @@ class GameCVC: UICollectionViewController {
             
     
         cell.backgroundColor = .orange
-        cell.imageGame.image = UIImage(named: "dog1")
+        cell.imageGame.image = UIImage(named: arrayOfImage[indexPath.item])
         cell.imageGame.isHidden = true
     
     
+        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         guard let cell = collectionView.cellForItem(at: indexPath) as? GameCVCell else { return }
+       
         openCell.append(indexPath.item)
+       
+       
+        if openCell.count == 2 {
+            if indexPath.item == openCell[0] {
+                openCell.removeLast()
+            }
+        }
+
         
         
         if openCell.count < 3 {
-            
-            cell.imageGame.isHidden = !cell.imageGame.isHidden
-            print (openCell.count)
+                cell.imageGame.isHidden = !cell.imageGame.isHidden
         }
         
         if openCell.count == 2 {
             if arrayOfItemImage[openCell[0]] == arrayOfItemImage[openCell[1]] {
+               
                 print ("совпало!")
                 cell.isHidden = true
                 guard let cell = collectionView.cellForItem(at: [0, openCell[0]]) as? GameCVCell else { return }
                 cell.isHidden = true
                 openCell.removeAll()
             } else {
-                
-                cell.imageGame.isHidden = !cell.imageGame.isHidden
+                print("не совпало")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    cell.imageGame.isHidden = !cell.imageGame.isHidden
+                }
                 guard let cell = collectionView.cellForItem(at: [0, openCell[0]]) as? GameCVCell else { return }
-                cell.imageGame.isHidden = !cell.imageGame.isHidden
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    cell.imageGame.isHidden = !cell.imageGame.isHidden
+                }
                 openCell.removeAll()
             }
             
-            
-            
-            
-            
-            
-            
+
         }
         
     }
